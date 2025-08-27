@@ -1,0 +1,35 @@
+       .div{
+            text-align: center;
+            margin-top: 0%;
+        }
+        .title{
+            font-weight: bold;
+            font-size: xx-large;
+        }
+        .btn{
+            font-size: x-large;
+            padding: 1.5% 4%;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 1%;
+            
+        }
+        .btn:hover{
+            transform: scale(1.1);
+            background-color: yellow;
+        }
+        .score{
+         display: flex;  
+         justify-content: center; 
+         gap: 5%;
+         font-size: x-large;
+         font-weight:normal;
+        }
+        .choice{
+            font-size: xx-large;
+            font-weight:bolder;
+        }
+        .result{
+            font-size: xxx-large;
+            font-weight: bold;
+        }
