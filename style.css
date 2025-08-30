@@ -42,6 +42,7 @@
         .choice{
             font-size: xx-large;
             font-weight:bolder;
+            display: none;
         }
         .result{    
             font-size: xxx-large;
@@ -57,17 +58,54 @@
             margin: 0;
             padding: 0;
         }
+        .bothMove img{
+            position: absolute;
+            gap: 20px;
+            width:100;
+            transition: transform 0.30s ease;
+        }
+        .bothMove img:hover{
+            transform: scale(1.1);
+
+        }
         .rockPlayer{
-            margin: 0;
-            padding: 0;
             max-width: 30%;
             height: 250px;
+            margin-right: 20%;
             display: none;
         }
         .rockComputer{
             max-width: 30%;
             height: 250px;
-            margin-left: 12.5%;
+            margin-left: 20%;
+            display:none;
+        }
+        .paperPlayer{
+            margin: 0;
+            padding: 0;
+            max-width: 30%;
+            height: 250px;
+            margin-right: 20%;
+            display: none;
+        }
+        .paperComputer{
+            max-width: 30%;
+            height: 250px;
+            margin-left: 20%;
+            display:none;
+        }
+        .scissorPlayer{
+            margin: 0;
+            padding: 0;
+            max-width: 30%;
+            height: 250px;
+            margin-right: 20%;
+            display: none;
+        }
+        .scissorComputer{
+            max-width: 30%;
+            height: 250px;
+            margin-left: 20%;
             display:none;
         }
         .modalLose{

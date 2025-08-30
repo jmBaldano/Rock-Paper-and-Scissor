@@ -9,6 +9,14 @@
         const randomNumber = Math.random();
         let computerChoice ="";
         let result = "";
+// reset the hands
+        const handResult = [
+            "rockPlayer", "paperPlayer", "scissorPlayer",
+            "rockComputer", "paperComputer", "scissorComputer"
+        ];
+        handResult  .forEach(id => {
+            document.getElementById(id).style.display = "none";
+        })
         
 
 
@@ -45,18 +53,29 @@
             ++loss;
             document.getElementById("modalL").style.display = "flex";                 
         }
-
+        // show hand move
+        
         if(userChoice === `Rock`){
-            document.getElementById("rockPlayer").style.display = "flex";
+            document.getElementById("rockPlayer").style.display = "block";
         }
 
-        // else if(userChoice === `Paper` ){
-        //     document.getElementById("paperComputer").style.display = "flex";
-        // }
-
+        else if(userChoice === `Paper` ){
+            document.getElementById("paperPlayer").style.display = "block";
+        }
+        else if(userChoice === `Scissor` ){
+            document.getElementById("scissorPlayer").style.display = "block";
+        }
+        
+        
 
         if(computerChoice === `Rock`){
-              document.getElementById("rockComputer").style.display = "flex";
+              document.getElementById("rockComputer").style.display = "block";
+        }
+        else if(computerChoice === `Paper`){
+            document.getElementById("paperComputer").style.display ="block";
+        }
+        else if(computerChoice === `Scissor`){
+            document.getElementById("scissorComputer").style.display ="block";
         }
 
         document.getElementById("loss").innerHTML = (`loss: ${loss}`);
