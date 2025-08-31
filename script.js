@@ -1,5 +1,4 @@
   
-   
     let win = 0;
     let loss = 0;
     let draw = 0;
@@ -34,7 +33,7 @@
         document.getElementById("computerChoice").innerHTML=(`I picked ${computerChoice}`);
 
         if(userChoice === computerChoice)  {
-            result = "It's a Draw";
+            result = "Draw";
             ++draw;
             
         }
@@ -50,8 +49,7 @@
         }
         else{
             result = "You Lose :(";
-            ++loss;
-            document.getElementById("modalL").style.display = "flex";                 
+            ++loss;               
         }
         // show hand move
         
@@ -78,6 +76,13 @@
             document.getElementById("scissorComputer").style.display ="block";
         }
 
+        if(loss === 10){
+            document.getElementById("modalL").style.display = "block";    
+        }
+        else if(win === 10){
+            document.getElementById("modalW").style.display = "block";
+        }
+
         document.getElementById("loss").innerHTML = (`loss: ${loss}`);
         document.getElementById("win").innerHTML = (`win: ${win}`);
         document.getElementById("draw").innerHTML = (`draw: ${draw}`);
@@ -86,6 +91,16 @@
 
     function playAgain(){
         document.getElementById("modalL").style.display = "none";
+        document.getElementById("modalW").style.display = "none";
+        handResult = [
+            "rockPlayer", "paperPlayer", "scissorPlayer",
+            "rockComputer", "paperComputer", "scissorComputer"
+        ];
+        handResult  .forEach(id => {
+            document.getElementById(id).style.display = "none";
+        })
+         reset();
+         document.getElementById("result").innerHTML = "Result";
     }
 
     function reset(){
@@ -99,20 +114,22 @@
     }
 
     // confetti effects
-function launchConfetti() {
-  confetti({
-    particleCount: 50,
-    spread: 100,
-    origin: { y: 0.5 }
-  });
-  confetti({
-    particleCount: 50,
-    spread: 100,
-    origin: { y: 1 }
-  });
-}
+    function launchConfetti() {
+    confetti({
+        particleCount: 50,
+        spread: 100,
+        origin: { y: 0.5 }
+    });
+    confetti({
+        particleCount: 50,
+        spread: 100,
+        origin: { y: 1 }
+    });
+    }
 
 //add design, like a png image for hands
 //add a feature: a surprise prize when they get 10 wins then add a plotwist,
 //when they reached 9 wins and they about to win again, the computer will draw a thunder so that the player cannot reach 10 wins
 //and not be able to get their surprise
+
+// add a talking cartoon on the side so when the user win, lose or draw the cartoon will be changed and it's depends on the result

@@ -1,5 +1,6 @@
        body{
-        background-color:darkseagreen
+        background-color:darkseagreen;
+        font-family: cursive;
        }
        .div{
             text-align: center;
@@ -108,6 +109,17 @@
             margin-left: 20%;
             display:none;
         }
+
+        .rockPlayer,
+        .rockComputer,
+        .paperPlayer,
+        .paperComputer,
+        .scissorPlayer,
+        .scissorComputer {
+            max-width: 20%;       /* scale relative to container */
+            height: auto;         /* let it scale naturally */
+            display: none;
+        }
         .modalLose{
             display: none; 
             position: fixed;
@@ -121,14 +133,34 @@
             justify-content: center;
             align-items: center;
         }
+        .modalWin{
+            display: none; 
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 110%;
+            background-color: rgba(0,0,0,0.7); 
+            text-align: center;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
         .modalLose img{
+            border-radius: 10px;           
+            padding: 0;
+            margin: 0;
+            
+        }
+        .modalWin img{
             border-radius: 10px;           
             padding-top: 3%;
         }
         .modalLose p{
-        font-size:xx-large;
-        text-align: center;
-        color: white
+            font-size:xx-large;
+            text-align: center;
+            color: white
         
         }
         .modalLose button{
@@ -138,9 +170,24 @@
             cursor: pointer;
             transition: transform 0.90s;
         }
+        .modalWin button{
+            padding: 1% 1%;
+            border-radius: 15px;
+            font-size: x-large;
+            cursor: pointer;
+            transition: transform 0.90s;
+            align-items:center;
+            display: flex;
+            margin-left: 45%
+        }
         .modalLose button:hover{
             transform: scale(1.5) rotate(360deg);
             background-color:bisque;
+        }
+        .modalWin button:hover{
+            transform: scale(1.5) rotate(360deg);
+            background-color:bisque;
+            
         }
         /* .modalWin-content{
              background: white;
