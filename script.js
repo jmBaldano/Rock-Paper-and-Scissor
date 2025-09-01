@@ -18,7 +18,7 @@
         })
         
 
-
+//generate random move based on random number 0 to 1
         if(randomNumber >= 0 && randomNumber < 1/3){
             computerChoice= "Rock";
         }
@@ -32,10 +32,10 @@
         document.getElementById("userChoice").innerHTML =(`You picked ${userChoice}`);
         document.getElementById("computerChoice").innerHTML=(`I picked ${computerChoice}`);
 
+// checks if win, lose, or a draw
         if(userChoice === computerChoice)  {
             result = "Draw";
-            ++draw;
-            
+            ++draw;     
         }
         else if(
             (userChoice === `Rock` && computerChoice === `Scissor`) || 
@@ -51,8 +51,8 @@
             result = "You Lose :(";
             ++loss;               
         }
-        // show hand move
-        
+
+// display the user hand move
         if(userChoice === `Rock`){
             document.getElementById("rockPlayer").style.display = "block";
         }
@@ -65,7 +65,7 @@
         }
         
         
-
+// display the computer move
         if(computerChoice === `Rock`){
               document.getElementById("rockComputer").style.display = "block";
         }
@@ -76,6 +76,7 @@
             document.getElementById("scissorComputer").style.display ="block";
         }
 
+// pop up modal for winning or losing 10 times
         if(loss === 10){
             document.getElementById("modalL").style.display = "block";    
         }
@@ -89,6 +90,7 @@
         document.getElementById("result").innerHTML = result;
 }   
 
+// play again button when the modal for winning or losing 10 times appeared
     function playAgain(){
         document.getElementById("modalL").style.display = "none";
         document.getElementById("modalW").style.display = "none";
@@ -103,6 +105,7 @@
          document.getElementById("result").innerHTML = "Result";
     }
 
+// reset the scoreboard
     function reset(){
         
         win = 0;
@@ -113,7 +116,7 @@
         document.getElementById("draw").innerHTML = (`draw: ${draw}`);
     }
 
-    // confetti effects
+// confetti effects
     function launchConfetti() {
     confetti({
         particleCount: 50,

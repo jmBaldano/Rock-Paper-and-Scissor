@@ -3,8 +3,6 @@
 <head>
     <link rel="stylesheet" href="style.css">
 </head>
-   
-
 <body id="body">
     <div class="div">
         <h1 class="title">Rock, Paper and Scissor game</h1>
@@ -14,7 +12,7 @@
             <p id="draw">draw: 0</p>
             <button onclick="reset()" class="resetBtn">Reset</button>
         </div>
-
+<!-- choices button for the player -->
         <button class="btn" onclick="playGame(`Rock`)">
         Rock
         </button>
@@ -25,15 +23,16 @@
         Scissor
     </button>
     <div class="result">
-        <p id="result">Result</p>
+        <p id="result">-Result-</p>
     </div>
+<!-- display the player move -->
     <div class="bothMove">
         <img id="rockPlayer" src="images/rockPlayer.png" class="rockPlayer" alt="Rock move">
         <img id="paperPlayer" src="images/paperPlayer.png" class="paperPlayer" alt="Paper move">
         <img id="scissorPlayer" src="images/scissorPlayer.png" class="scissorPlayer" alt="Scissor move">
     </div>
+<!-- display the computer move -->
     <div class="bothMove">
-        
         <img id="rockComputer" src="images/rockComputer.png" class="rockComputer" alt="Rock move">
         <img id="paperComputer" src="images/paperComputer.png" class="paperComputer" alt="Paper move">
         <img id="scissorComputer" src="images/scissorComputer.png" class="scissorComputer" alt="Scissor move">
@@ -43,12 +42,13 @@
             <p id="computerChoice"></p>
         </div> 
     </div>
-    <!-- Loss modal -->
+<!-- Loss modal -->
     <div id="modalL" class="modalLose">
         <img src="images/tenor.gif" alt="laughing cat">
         <p>You lose hahahahah!</p>
         <button onclick="playAgain()">Play again??</button>
     </div>
+<!-- Win modal -->
     <div id="modalW" class="modalWin">
         <img src="images/flowerCat3.gif" alt="laughing cat">
         <button onclick="playAgain()">Play again??</button>
