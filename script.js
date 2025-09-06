@@ -1,10 +1,9 @@
-  
-    let win = 0;
-    let loss = 0;
-    let draw = 0;
-   
-    
-    function playGame(userChoice){
+        const score = {
+        win: 0,
+        loss: 0,
+        draw: 0,
+        }
+   function playGame(userChoice){
         const randomNumber = Math.random();
         let computerChoice ="";
         let result = "";
@@ -35,7 +34,7 @@
 // checks if win, lose, or a draw
         if(userChoice === computerChoice)  {
             result = "Draw";
-            ++draw;     
+            score.draw += 1;     
         }
         else if(
             (userChoice === `Rock` && computerChoice === `Scissor`) || 
@@ -43,13 +42,13 @@
             (userChoice === `Scissor` && computerChoice === `Paper`)
         ){
             result = "You Win!!";
-            ++win;
-            launchConfetti()
+            score.win += 1;
+            launchConfetti();
             
         }
         else{
             result = "You Lose :(";
-            ++loss;               
+            score.loss += 1;             
         }
 
 // display the user hand move
@@ -77,16 +76,14 @@
         }
 
 // pop up modal for winning or losing 10 times
-        if(loss === 10){
+        if(score.loss === 10){
             document.getElementById("modalL").style.display = "block";    
         }
-        else if(win === 10){
+        else if(score.win === 10){
             document.getElementById("modalW").style.display = "block";
         }
-
-        document.getElementById("loss").innerHTML = (`loss: ${loss}`);
-        document.getElementById("win").innerHTML = (`win: ${win}`);
-        document.getElementById("draw").innerHTML = (`draw: ${draw}`);
+// score counter
+       updateScore()
         document.getElementById("result").innerHTML = result;
 }   
 
@@ -98,22 +95,27 @@
             "rockPlayer", "paperPlayer", "scissorPlayer",
             "rockComputer", "paperComputer", "scissorComputer"
         ];
-        handResult  .forEach(id => {
+        handResult.forEach(id => {
             document.getElementById(id).style.display = "none";
         })
          reset();
          document.getElementById("result").innerHTML = "Result";
     }
 
+// update the scoreboard function
+    function updateScore(){
+        document.getElementById("loss").innerHTML = (`loss: ${score.loss}`);
+        document.getElementById("win").innerHTML = (`win: ${score.win}`);
+        document.getElementById("draw").innerHTML = (`draw: ${score.draw}`);
+    }
+
 // reset the scoreboard
     function reset(){
         
-        win = 0;
-        loss = 0;
-        draw = 0;
-        document.getElementById("loss").innerHTML = (`loss: ${loss}`);
-        document.getElementById("win").innerHTML = (`win: ${win}`);
-        document.getElementById("draw").innerHTML = (`draw: ${draw}`);
+        score.loss = 0;
+        score.win = 0;
+        score.draw = 0;
+        updateScore();
     }
 
 // confetti effects
@@ -131,7 +133,7 @@
     }
 
 //add design, like a png image for hands
-//add a feature: a surprise prize when they get 10 wins then add a plotwist,
+//add a feature: a surprise prize when they get 10 wins then add a plot twist,
 //when they reached 9 wins and they about to win again, the computer will draw a thunder so that the player cannot reach 10 wins
 //and not be able to get their surprise
 
