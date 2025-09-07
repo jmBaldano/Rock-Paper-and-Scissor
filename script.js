@@ -1,9 +1,10 @@
-        const score = {
+        let score = {
         win: 0,
         loss: 0,
         draw: 0,
         }
-   function playGame(userChoice){
+        
+        function playGame(userChoice){
         const randomNumber = Math.random();
         let computerChoice ="";
         let result = "";
@@ -50,6 +51,8 @@
             result = "You Lose :(";
             score.loss += 1;             
         }
+
+         localStorage.setItem("score", JSON.stringify(score)); //saves the score to the localStorage
 
 // display the user hand move
         if(userChoice === `Rock`){
@@ -116,6 +119,7 @@
         score.win = 0;
         score.draw = 0;
         updateScore();
+        localStorage.removeItem("score");
     }
 
 // confetti effects
