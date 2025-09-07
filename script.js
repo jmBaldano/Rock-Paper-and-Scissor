@@ -1,17 +1,17 @@
-        let score = JSON.parse(localStorage.getItem("score")); //get the score item from localStorage
-        updateScore();
-//added a default value for score
-        if (score === null){
+    let score = JSON.parse(localStorage.getItem("score")); //get the score item from localStorage
+    function playGame(userChoice){
+        if (!score){
             score = {
                 win: 0,
                 loss: 0,
                 draw: 0,
             };
-
+        
         }
+    updateScore();
+//added a default value for score
 
-        function playGame(userChoice){
-        const randomNumber = Math.random();
+    const randomNumber = Math.random();
         let computerChoice ="";
         let result = "";
 // reset the hands
