@@ -1,14 +1,11 @@
-    let score = JSON.parse(localStorage.getItem("score")); //get the score item from localStorage
-    function playGame(userChoice){
-        if (!score){
-            score = {
-                win: 0,
-                loss: 0,
-                draw: 0,
-            };
-        
-        }
+//get the score item from localStorage
+    let score = JSON.parse(localStorage.getItem("score")) || {
+            win: 0,
+            loss: 0,
+            draw: 0,
+        }; 
     updateScore();
+    function playGame(userChoice){
 //added a default value for score
 
     const randomNumber = Math.random();
