@@ -1,9 +1,15 @@
-        let score = {
-        win: 0,
-        loss: 0,
-        draw: 0,
+        let score = JSON.parse(localStorage.getItem("score")); //get the score item from localStorage
+        updateScore();
+//added a default value for score
+        if (score === null){
+            score = {
+                win: 0,
+                loss: 0,
+                draw: 0,
+            };
+
         }
-        
+
         function playGame(userChoice){
         const randomNumber = Math.random();
         let computerChoice ="";
